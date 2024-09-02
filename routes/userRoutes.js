@@ -35,8 +35,12 @@ router.post('/login', async (req, res) => {
   if (!user || !await bcrypt.compare(password, user.password)) {
     return res.status(401).send('Invalid credentials');
   }
-  const token = jwt.sign({ userId: user._id}, '12345');
-  res.send({ token });
+ const payload = {
+          id: user.id,
+      }
+      console.log(JSON.stringify(payload));
+      const token = generateToken(payload);
+      console.log("Token is : ", token);
   }catch (err) {
     console.log(err);
     res.status(500).json({ error: 'Internal Server Error' });
