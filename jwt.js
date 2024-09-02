@@ -27,17 +27,4 @@ function generateToken(payload) {
 
 module.exports = {jwtAuthMiddleware, generateToken};
 
-// const jwt = require('jsonwebtoken');
 
-// const jwtAuthMiddleware = (req, res, next) => {
-//   const token = req.header('Authorization').replace('Bearer ', '');
-//   try {
-//     const decoded = jwt.verify(token, 'secret-key');
-//     req.user = decoded;
-//     next();
-//   } catch (error) {
-//     res.status(401).send('Unauthorized');
-//   }
-// };
-
-// module.exports = jwtAuthMiddleware;
